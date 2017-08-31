@@ -25,6 +25,7 @@ Page({
   getIndexData: function () {
     let that = this;
     util.request(api.IndexUrl).then(function (res) {
+      console.log('返回的数据：', res);
       if (res.errno === 0) {
         that.setData({
           newGoods: res.data.newGoodsList,
