@@ -29,7 +29,7 @@ function request(url, data = {}, method = "GET") {
       method: method,
       header: {
         'Content-Type': 'application/json',
-        'X-Nideshop-Token': wx.getStorageSync('token')
+        'X-Nideshop-Token': wx.getStorageSync('token') // 获取 tokon 令牌
       },
       success: function (res) {
         console.log("success");

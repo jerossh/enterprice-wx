@@ -3,7 +3,7 @@ var api = require('./config/api.js');
 var user = require('./services/user.js');
 
 App({
-  onLaunch: function () {
+  onLaunch: function () { // 小程序登录事件
     //获取用户的登录信息
     user.checkLogin().then(res => {
       console.log('app login')
