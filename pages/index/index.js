@@ -11,7 +11,7 @@ Page({
     topics: [],
     brands: [],
     floorGoods: [],
-    banner: [],
+    slides: [],
     channel: []
   },
   onShareAppMessage: function () {
@@ -28,12 +28,12 @@ Page({
       console.log('返回的数据：', res);
       if (res.errno === 0) {
         that.setData({
-          newGoods: res.data.newGoodsList,
+          newGoods: res.data.cases,
           hotGoods: res.data.hotGoodsList,
           topics: res.data.topicList,
-          brand: res.data.brandList,
+          brand: res.data.cases,
           floorGoods: res.data.categoryList,
-          banner: res.data.banner,
+          slides: res.data.slides,
           channel: res.data.channel
         });
       }

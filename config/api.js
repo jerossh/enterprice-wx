@@ -1,8 +1,11 @@
 var NewApiRootUrl = 'http://127.0.0.1:8360/api/';
 var kapuApiUrl = 'http://127.0.0.1:5000/api/';
+var queryId = '?id=599294af79ba840e3ab296dc';
 
 module.exports = {
-    IndexUrl: NewApiRootUrl + 'index/index', //首页数据接口
+    // IndexUrl: NewApiRootUrl + 'index/index', //首页数据接口
+    IndexUrl: kapuApiUrl + 'index' + queryId, // kapu 首页数据接口
+
     CatalogList: NewApiRootUrl + 'catalog/index',  //分类目录全部分类数据接口
     CatalogCurrent: NewApiRootUrl + 'catalog/current',  //分类目录当前分类数据接口
 
