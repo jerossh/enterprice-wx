@@ -12,11 +12,12 @@ Page({
     brands: [],
     floorGoods: [],
     slides: [],
-    channel: []
+    channel: [],
+    caseTile: ''
   },
   onShareAppMessage: function () {
     return {
-      title: 'NideShop',
+      title: '神谷企业模版',
       desc: '企业模版1',
       path: '/pages/index/index'
     }
@@ -28,13 +29,14 @@ Page({
       console.log('返回的数据：', res);
       if (res.errno === 0) {
         that.setData({
-          newGoods: res.data.cases,
-          hotGoods: res.data.hotGoodsList,
-          topics: res.data.topicList,
-          brand: res.data.cases,
-          floorGoods: res.data.categoryList,
+          topics: res.data.blogs,
+          // hotGoods: res.data.hotGoodsList,
+          // topics: res.data.topicList,
+          brand: res.data.cases.slice(0, 6),
+          // floorGoods: res.data.categoryList,
           slides: res.data.slides,
-          channel: res.data.channel
+          channel: res.data.channel,
+          caseTile: res.data.siteInfo.caseTitle
         });
       }
     });

@@ -95,7 +95,7 @@
 
 .a-brand .mt .brand {
   display: block;
-  font-size: 33rpx;
+  font-size: 26rpx;
   height: 43rpx;
   color: #333;
 }

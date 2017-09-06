@@ -17,7 +17,7 @@
   <view class="a-section a-brand">
     <view class="h">
       <navigator url="../brand/brand">
-        <text class="txt">品牌制造商直供</text>
+        <text class="txt">{{caseTile}}</text>
       </navigator>
     </view>
     <view class="b">
@@ -28,14 +28,14 @@
             <view class="mt">
               <text class="brand">{{item.name}}</text>
               <text class="price">{{item.floor_price}}</text>
-              <text class="unit">元起</text>
+              <!-- <text class="unit">元起</text> -->
             </view>
           </view>
         </navigator>
       </view>
     </view>
   </view>
-  <view class="a-section a-new" wx:if="{{newGoods.length > 0}}">
+  <!-- <view class="a-section a-new" wx:if="{{newGoods.length > 0}}">
     <view class="h">
       <view>
         <navigator url="../newGoods/newGoods">
@@ -75,12 +75,12 @@
         </navigator>
       </view>
     </view>
-  </view>
+  </view> -->
   <view class="a-section a-topic" wx:if="topics.length > 0">
     <view class="h">
       <view>
       <navigator url="../topic/topic" open-type="switchTab">
-        <text class="txt">专题精选</text>
+        <text class="txt">新闻专题</text>
         </navigator>
       </view>
     </view>
@@ -88,10 +88,10 @@
       <scroll-view scroll-x="true" class="list">
         <view class="item" wx:for="{{topics}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
           <navigator url="../topicDetail/topicDetail?id={{item.id}}">
-            <image class="img" src="{{item.scene_pic_url}}" background-size="cover"></image>
+            <image class="img" src="{{'https://kapuw.net' + item.img}}" background-size="cover"></image>
             <view class="np">
               <text class="name">{{item.title}}</text>
-              <text class="price">￥{{item.price_info}}元起</text>
+              <text class="price">{{item.price_info}}</text>
             </view>
             <text class="desc">{{item.subtitle}}</text>
           </navigator>

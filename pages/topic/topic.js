@@ -58,12 +58,12 @@ Page({
             duration: 2000
         });
 
-        util.request(api.TopicList, { page: that.data.page, size: that.data.size }).then(function (res) {
+        util.request(api.IndexUrl, { page: that.data.page, size: that.data.size }).then(function (res) {
           if (res.errno === 0) {
 
             that.setData({
               scrollTop: 0,
-              topicList: res.data.data,
+              topicList: res.data.blogs,
               showPage: true,
               count: res.data.count
             });
