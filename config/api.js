@@ -1,6 +1,6 @@
 var NewApiRootUrl = 'http://127.0.0.1:8360/api/';
-var kapuApiUrl = 'http://127.0.0.1:5000/api/';
-var queryId = '?id=599294af79ba840e3ab296dc';
+var kapuApiUrl = 'https://kapuw.net/api/';
+var queryId = '?id=599154358d84777f3102dff3';
 
 module.exports = {
     // IndexUrl: NewApiRootUrl + 'index/index', //首页数据接口
