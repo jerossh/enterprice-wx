@@ -18,25 +18,40 @@ Page({
       id: parseInt(options.id)
     });
 
-    util.request(api.TopicDetail, { id: that.data.id}).then(function (res) {
-      if (res.errno === 0) {
-
-        that.setData({
-          topic: res.data,
-        });
-
-        WxParse.wxParse('topicDetail', 'html', res.data.content, that);
+    console.warn('id是什么什么', options.id);
+    const blogs = wx.getStorageSync('infoData').blogs.filter((blog) => {
+      if (blog._id == options.id) {
+        return true;
+      } else {
+        return false;
       }
     });
-
-    util.request(api.TopicRelated, { id: that.data.id}).then(function (res) {
-      if (res.errno === 0) {
-
-        that.setData({
-          topicList: res.data
-        });
-      }
+    console.warn('id是什么什么', blogs);
+    that.setData({
+      topic: blogs[0],
     });
+
+    WxParse.wxParse('topicDetail', 'html', blogs[0].content, that);
+
+    // util.request(api.TopicDetail, { id: that.data.id}).then(function (res) {
+    //   if (res.errno === 0) {
+
+    //     that.setData({
+    //       topic: res.data,
+    //     });
+
+    //     WxParse.wxParse('topicDetail', 'html', res.data.content, that);
+    //   }
+    // });
+
+    // util.request(api.TopicRelated, { id: that.data.id}).then(function (res) {
+    //   if (res.errno === 0) {
+
+    //     that.setData({
+    //       topicList: res.data
+    //     });
+    //   }
+    // });
   },
   getCommentList(){
     let that = this;
@@ -60,7 +75,7 @@ Page({
   },
   onShow: function () {
     // 页面显示
-    this.getCommentList();
+    // this.getCommentList();
   },
   onHide: function () {
     // 页面隐藏

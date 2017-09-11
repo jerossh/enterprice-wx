@@ -40,7 +40,7 @@
     <view class="h">
       <view>
       <navigator url="../topic/topic" open-type="switchTab">
-        <text class="txt">{{}}</text>
+        <text class="txt">{{'新闻专题'}}</text>
         </navigator>
       </view>
     </view>
