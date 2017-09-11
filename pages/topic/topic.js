@@ -58,18 +58,26 @@ Page({
             duration: 2000
         });
 
-        util.request(api.IndexUrl, { page: that.data.page, size: that.data.size }).then(function (res) {
-          if (res.errno === 0) {
+        const infoData = wx.getStorageSync('infoData');
+        this.setData({
+            scrollTop: 0,
+            topicList: infoData.blogs,
+            showPage: true,
+            count: infoData.count
+        })
 
-            that.setData({
-              scrollTop: 0,
-              topicList: res.data.blogs,
-              showPage: true,
-              count: res.data.count
-            });
-          }
-          wx.hideToast();
-        });
+        // util.request(api.IndexUrl, { page: that.data.page, size: that.data.size }).then(function (res) {
+        //   if (res.errno === 0) {
+
+        //     that.setData({
+        //       scrollTop: 0,
+        //       topicList: res.data.blogs,
+        //       showPage: true,
+        //       count: res.data.count
+        //     });
+        //   }
+        //   wx.hideToast();
+        // });
         
     },
     prevPage: function (event) {

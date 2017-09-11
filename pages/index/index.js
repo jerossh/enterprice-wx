@@ -25,21 +25,32 @@ Page({
 
   getIndexData: function () {
     let that = this;
-    util.request(api.IndexUrl).then(function (res) {
-      console.log('返回的数据：', res);
-      if (res.errno === 0) {
-        that.setData({
-          topics: res.data.blogs,
-          // hotGoods: res.data.hotGoodsList,
-          // topics: res.data.topicList,
-          brand: res.data.cases.slice(0, 6),
-          // floorGoods: res.data.categoryList,
-          slides: res.data.slides,
-          channel: res.data.channel,
-          caseTile: res.data.siteInfo.caseTitle
-        });
-      }
+    const infoData = wx.getStorageSync('infoData');
+    this.setData({
+      topics: infoData.blogs,
+      // hotGoods: res.data.hotGoodsList,
+      // topics: res.data.topicList,
+      brand: infoData.cases.slice(0, 6),
+      // floorGoods: res.data.categoryList,
+      slides: infoData.slides,
+      channel: infoData.channel,
+      caseTile: infoData.siteInfo.caseTitle
     });
+    // util.request(api.IndexUrl).then(function (res) {
+    //   console.log('返回的数据：', res);
+    //   if (res.errno === 0) {
+    //     that.setData({
+    //       topics: res.data.blogs,
+    //       // hotGoods: res.data.hotGoodsList,
+    //       // topics: res.data.topicList,
+    //       brand: res.data.cases.slice(0, 6),
+    //       // floorGoods: res.data.categoryList,
+    //       slides: res.data.slides,
+    //       channel: res.data.channel,
+    //       caseTile: res.data.siteInfo.caseTitle
+    //     });
+    //   }
+    // });
   },
   onLoad: function (options) {
     this.getIndexData();
