@@ -1,5 +1,6 @@
 <scroll-view class="container">
   <scroll-view class="content">
+    <image class="icon" src="{{'https://kapuw.net' + topic.img}}"></image>
     <import src="../../lib/wxParse/wxParse.wxml"/> 
     <template is="wxParse" data="{{wxParseData:topicDetail.nodes}}"/>
   </scroll-view>

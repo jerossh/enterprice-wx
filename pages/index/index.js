@@ -26,6 +26,7 @@ Page({
   getIndexData: function () {
     let that = this;
     const infoData = wx.getStorageSync('infoData');
+    infoData.channel[0].url = ''
     this.setData({
       topics: infoData.blogs,
       // hotGoods: res.data.hotGoodsList,

@@ -188,3 +188,11 @@
     font-size: 28rpx;
 }
 @import "../../lib/wxParse/wxParse.wxss";
+
+.WxEmojiView {
+  padding:30rpx 20rpx;
+}
+
+.wxParse-inline {
+  display:block;
+}

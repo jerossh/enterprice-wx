@@ -55,7 +55,7 @@ Page({
         wx.showToast({
             title: '加载中...',
             icon: 'loading',
-            duration: 2000
+            duration: 800
         });
 
         const infoData = wx.getStorageSync('infoData');

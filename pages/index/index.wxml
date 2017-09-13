@@ -22,7 +22,7 @@
     </view>
     <view class="b">
       <view class="item item-1" wx:for="{{brand}}" wx:key="item.id">
-        <navigator url="/pages/brandDetail/brandDetail?id={{item.id}}">
+        <navigator url="/pages/brandDetail/brandDetail?id={{item._id}}">
           <view class="wrap">
             <image class="img" src="{{'https://kapuw.net' + item.img}}" mode="aspectFill"></image>
             <view class="mt">
@@ -47,7 +47,7 @@
     <view class="b">
       <scroll-view scroll-x="true" class="list">
         <view class="item" wx:for="{{topics}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
-          <navigator url="../topicDetail/topicDetail?id={{item.id}}">
+          <navigator url="../topicDetail/topicDetail?id={{item._id}}">
             <image class="img" src="{{ 'https://kapuw.net' + item.img}}" background-size="cover"></image>
             <view class="np">
               <text class="name">{{item.title}}</text>
@@ -66,9 +66,9 @@
       </view>
     </view>
     <view class="b">
-      <block wx:for="{{item.goodsList}}" wx:for-index="iindex" wx:for-item="iitem" wx:key="{{iitem.id}}">
+      <block wx:for="{{item.goodsList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
         <view class="item {{iindex % 2 == 0 ? '' : 'item-b'}}">
-          <navigator url="../goods/goods?id={{iitem.id}}" class="a">
+          <navigator url="../topicDetail/topicDetail?id={{item._id}}" class="a">
             <image class="img" src="{{  'https://kapuw.net' + item.img}}" background-size="cover"></image>
             <text class="name">{{item.name}}</text>
             <text class="price">￥{{iitem.retail_price}}</text>

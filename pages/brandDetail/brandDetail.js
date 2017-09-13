@@ -18,19 +18,30 @@ Page({
     that.setData({
       id: parseInt(options.id)
     });
-    this.getBrand();
+    this.getBrand(options);
   },
-  getBrand: function () {
+  getBrand: function (opt) {
     let that = this;
-    util.request(api.BrandDetail, { id: that.data.id }).then(function (res) {
-      if (res.errno === 0) {
-        that.setData({
-          brand: res.data.brand
-        });
-
-        that.getGoodsList();
+    const item = wx.getStorageSync('infoData').cases.filter((el) => {
+      if (el._id == opt.id) {
+        return true;
+      } else {
+        return false;
       }
-    });
+    })[0];
+    this.setData({
+      brand: item
+    })
+    console.warn(item);
+    // util.request(api.BrandDetail, { id: that.data.id }).then(function (res) {
+    //   if (res.errno === 0) {
+    //     that.setData({
+    //       brand: res.data.brand
+    //     });
+
+    //     that.getGoodsList();
+    //   }
+    // });
   },
   getGoodsList() {
     var that = this;
