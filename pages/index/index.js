@@ -25,14 +25,16 @@ Page({
 
   getIndexData: function () {
     let that = this;
+    // if (wx.getStorageSync('infoData')) {
+      
+    // }
     const infoData = wx.getStorageSync('infoData');
-    infoData.channel[0].url = ''
+    // infoData.channel[0].url = ''
+
+    console.warn('首页载入');
     this.setData({
       topics: infoData.blogs,
-      // hotGoods: res.data.hotGoodsList,
-      // topics: res.data.topicList,
       brand: infoData.cases.slice(0, 6),
-      // floorGoods: res.data.categoryList,
       slides: infoData.slides,
       channel: infoData.channel,
       caseTile: infoData.siteInfo.caseTitle

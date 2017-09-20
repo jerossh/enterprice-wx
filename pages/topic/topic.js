@@ -39,7 +39,8 @@ Page({
         that.setData({
             "page": parseInt(that.data.page) + 1
         });
-
+        // 没作用
+        // wx.setNavigationBarTitle({ title: '新闻资讯' })
         this.getTopic();
         
     },
@@ -52,11 +53,11 @@ Page({
             topicList: []
         });
         // 页面渲染完成
-        wx.showToast({
-            title: '加载中...',
-            icon: 'loading',
-            duration: 800
-        });
+        // wx.showToast({
+        //     title: '加载中...',
+        //     icon: 'loading',
+        //     duration: 800
+        // });
 
         const infoData = wx.getStorageSync('infoData');
         this.setData({
