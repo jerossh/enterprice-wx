@@ -32,13 +32,20 @@ Page({
     // infoData.channel[0].url = ''
 
     console.warn('首页载入');
-    this.setData({
-      topics: infoData.blogs,
-      brand: infoData.cases.slice(0, 6),
-      slides: infoData.slides,
-      channel: infoData.channel,
-      caseTile: infoData.siteInfo.caseTitle
-    });
+    try {
+      this.setData({
+        topics: infoData.blogs,
+        brand: infoData.cases.slice(0, 6),
+        slides: infoData.slides,
+        channel: infoData.channel,
+        caseTile: infoData.siteInfo.caseTitle
+      });
+    } catch(err) {
+      console.warn('首页载入发生错误');
+      // getCurrentPages()[getCurrentPages().length - 1].onLoad()
+      // this.onLoad();
+    }
+
     // util.request(api.IndexUrl).then(function (res) {
     //   console.log('返回的数据：', res);
     //   if (res.errno === 0) {

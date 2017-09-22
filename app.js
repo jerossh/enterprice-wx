@@ -1,10 +1,10 @@
 var util = require('./utils/util.js');
 var api = require('./config/api.js');
 var user = require('./services/user.js');
-const regeneratorRuntime = require('./runtime.js')
+// const regeneratorRuntime = require('./runtime.js')
 
 App({
-  onLaunch: async function (options) { // 小程序登录事件
+  onLaunch: function (options) { // 小程序登录事件
     //获取用户的登录信息
     user.checkLogin().then(res => {
       console.log('app login')
@@ -17,11 +17,11 @@ App({
     console.warn('是否初始化？', infoData);
     if (!infoData.title) {
       console.warn('需要初始化');
-      await util.request(api.IndexUrl).then(async function (res) {
-        console.log('返回的数据：', res);
+      util.request(api.IndexUrl).then(function (res) {
+        console.warn('返回的数据：', res);
         if (res.errno === 0) {
           // 全部数据
-          await wx.setStorage({
+          wx.setStorage({
             key: "infoData",
             data: res.data,
           });
@@ -29,34 +29,24 @@ App({
 
           // 如果在此之前页面已经生成，则重新执行该页面的 onLoad 事件
           if (getCurrentPages().length != 0) {
-            getCurrentPages()[getCurrentPages().length - 1].onLoad()
+            getCurrentPages()[getCurrentPages().length - 1].onLoad();
           }
+          console.warn('写入完成');
         }
       });
+      wx.request({
+        url: 'https://kapuw.net/api/index?id=599154358d84777f3102dff3',
+        success: function (res) {
+          console.warn('返回的数据',res.data)
+        }
+      })
     } else {
       console.warn('不需要初始化');
     }
   },
 
   onShow: function (options) {
-    // const infoData = wx.getStorageSync('infoData');
-    // console.warn('onshow是否初始化？', infoData);
-    // if (!infoData.title) {
-    //   console.warn('需要初始化');
-    //   util.request(api.IndexUrl).then(function (res) {
-    //     console.log('返回的数据：', res);
-    //     if (res.errno === 0) {
-    //       // 全部数据
-    //       wx.setStorage({
-    //         key: "infoData",
-    //         data: res.data,
-    //       });
-    //       console.warn('写入缓存');
-    //     }
-    //   });
-    // } else {
-    //   console.warn('不需要初始化');
-    // }
+    
   },
   onError: function (msg) {
     console.warn('发生错误了', msg);
